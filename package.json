@@ -25,5 +25,5 @@
   "license": "ISC",
   "engines": {
     "node": "12.17.0"
-  },
+  }
 }
