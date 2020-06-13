@@ -31,7 +31,7 @@ cookie:{
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://admin-justin:Test123@cluster0-kq813.mongodb.net/userDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://admin-justin:Test123@cluster0-kq813.mongodb.net/userDB", {useUnifiedTopology: true, useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
@@ -177,9 +177,9 @@ app.post("/login", function(req, res){
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+  port = 5000;
 }
-app.listen(port);
+
 
 app.listen(port, function() {
   console.log("Server has started successfully.");
