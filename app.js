@@ -19,10 +19,6 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-cookie:{
-  secure: true,
-  maxAge:60000
-        },
   secret: "Our little secret.",
   resave: false,
   saveUninitialized: false
@@ -61,7 +57,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets",
+    callbackURL: "http://localhost:5000/auth/google/secrets",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -177,7 +173,7 @@ app.post("/login", function(req, res){
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 5000;
+  port = 3000;
 }
 
 
